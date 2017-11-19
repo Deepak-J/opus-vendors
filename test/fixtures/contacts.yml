@@ -1,0 +1,53 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  provider_ID: 1
+  title: MyString
+  first_name: MyString
+  middle_name: MyString
+  last_name: MyString
+  year_of_registration: MyString
+  years_of_experience: 1
+  registration_number: MyString
+  qualification: MyString
+  clinic_name: MyString
+  service_type: MyString
+  session_rate: 1.5
+  rating: MyString
+  external_notes: MyText
+  address: MyText
+  location: MyString
+  state: MyString
+  landmark: MyString
+  city: MyString
+  zip: 1
+  email: MyString
+  contact_number: 1
+  alternate_number: 1
+  mobile: 1
+
+two:
+  provider_ID: 1
+  title: MyString
+  first_name: MyString
+  middle_name: MyString
+  last_name: MyString
+  year_of_registration: MyString
+  years_of_experience: 1
+  registration_number: MyString
+  qualification: MyString
+  clinic_name: MyString
+  service_type: MyString
+  session_rate: 1.5
+  rating: MyString
+  external_notes: MyText
+  address: MyText
+  location: MyString
+  state: MyString
+  landmark: MyString
+  city: MyString
+  zip: 1
+  email: MyString
+  contact_number: 1
+  alternate_number: 1
+  mobile: 1
