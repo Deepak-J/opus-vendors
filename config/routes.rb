@@ -1,9 +1,17 @@
 Rails.application.routes.draw do
-  get 'providers/new'
+  get 'providers/new', to: 'providers#new'
 
   get 'providers/index'
 
-  get 'providers/edit'
+  post 'providers/create/(:params)', to: 'providers#create', as: :providers_create
+  
+  get 'providers/provider/(:params)', to: 'providers#view', as: :providers_view
+  
+  get 'providers/provider/edit/(:params)', to: 'providers#edit', as: :providers_edit
+  
+    get 'providers/provider/delete/(:params)', to: 'providers#delete', as: :providers_delete
+
+  get 'providers/addContact/(:params)', to: 'providers#addContact', as: :add_contact
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

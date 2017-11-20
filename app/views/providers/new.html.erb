@@ -1,0 +1,24 @@
+<div class="container">
+<div class="jumbotron">
+    <h2>Add your vendors here </h2>
+    Provider#new
+</div>
+
+<div>
+    <%#link_to "Add Contact", :add_contact_path%>
+</div>
+
+<div class="form">
+    <%=form_for @provider, url: providers_create_path do |provider|%>
+    <%=provider.text_field :name, placeholder: "Provider's full Registered name?", class: "form-control" %>
+    <%=provider.text_field :address, placeholder: "Provider's Registered Address?", class: "form-control" %>    
+    <%=provider.text_field :zip, placeholder: "Address' Zip Code", class: "form-control" %>
+    <%=provider.text_field :city, placeholder: "Address' City", class: "form-control" %>
+    <%=provider.collection_select :category_id,Category.all,:id,:name,prompt: "Provider's Category?", class: "form-control"%>
+    <%=provider.text_field :charge_code, placeholder: "Provider's ChargeCode", class: "form-control"%>
+    <%=provider.label :info, 'Charge code could be auto-generated upon requirement', class: "form-text text-muted"%>
+    <%=provider.submit "Create Provider!", class: "btn btn-primary form-control" %>
+    <%end%>
+</div>
+
+</div>

@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171119085756) do
+ActiveRecord::Schema.define(version: 20171119124400) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.string   "comments"
+    t.string   "prefix"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "contacts", force: :cascade do |t|
     t.integer  "provider_ID"
@@ -49,6 +57,9 @@ ActiveRecord::Schema.define(version: 20171119085756) do
     t.string   "charge_code"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "city"
+    t.string   "zip"
+    t.integer  "category_id"
   end
 
 end

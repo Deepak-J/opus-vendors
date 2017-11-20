@@ -1,0 +1,31 @@
+<div class="container">
+<div class="jumbotron">
+    <h2>Full view for provider: <kbd><%=@provider.name%></kbd></h2>
+    Provider#index
+</div>
+<%= link_to "Add Contact", add_contact_path(id: @provider.id) %>
+<table class="table">
+    <tr>
+    <td>ID </td><td><%=@provider.id%></td>
+    </tr>
+    <tr>
+    <td>Name </td><td><%=@provider.name%></td>
+        </tr>
+        <tr>
+    <td>Address </td><td><%=@provider.address%></td>
+        </tr>
+        <tr>
+    <td>Charge Code </td><td><%=@provider.charge_code%></td>
+        </tr>
+    <td>City </td><td><%=@provider.city%></td>
+        </tr>
+        <tr>
+    <td>Zip </td><td><%=@provider.zip%></td>
+        </tr>
+        <tr>
+    <td>Category </td><td><%=@provider.category.name%></td>
+        </tr>
+</table>
+<%=link_to "Back to Index", providers_index_path%>
+<!-- <center><kbd>Something Went wrong with the Provider. Report this issue to the Admin</kbd></center> -->
+</div>

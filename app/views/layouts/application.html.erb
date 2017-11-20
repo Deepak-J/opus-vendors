@@ -7,8 +7,42 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+  <!-- <header class="navbar navbar-expand navbar-inverse navbar-dark flex-column flex-md-row bd-navbar"> -->
+  
+  <!-- Start of Menu -->
+  <div class="container">
+    <div class="navbar navbar-inverse">
+    <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link active" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Docs');" > <%=link_to "Providers", providers_index_path%> </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Docs');"> Clients (construction) </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/docs/4.0/examples/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Examples');">Examples</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://themes.getbootstrap.com" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Themes');" target="_blank" rel="noopener">Themes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://jobs.getbootstrap.com" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Jobs');" target="_blank" rel="noopener">Jobs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://expo.getbootstrap.com" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Expo');" target="_blank" rel="noopener">Expo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://blog.getbootstrap.com" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Blog');" target="_blank" rel="noopener">Blog</a>
+      </li>
+    </ul>
+  </div>
+  </div>
+    </div>
+  <%= yield %>
 
 </body>
 </html>

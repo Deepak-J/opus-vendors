@@ -1,0 +1,35 @@
+<div class="container">
+<div class="jumbotron">
+    <h2>Shows all your Providers here </h2>
+    Provider#index
+</div>
+<%=link_to "New Provider", providers_new_path, class: "btn btn-primary"%>
+    <% if @providers.size > 0 %>
+        <!----- Start Of Table Headers -->    
+        <table class="table table-responsive table-bordered">
+            <theader>
+                <tr>
+                    <td>ID</td>                    
+                    <td>Name</td>
+                    <td>City</td>
+                    <td>Zip</td>
+                    <td>Category</td>                    
+                </tr>
+            </theader>
+            <!----- Start Of Data -->
+            <% @providers.each do |provider| %>
+            <tr>
+                <td><%=provider.id%></td>
+                <td><%= link_to provider.name, providers_view_path(id: provider.id) %></td>
+                <td><%=provider.city%></td>
+                <td><%=provider.zip%></td>
+                <td><%=provider.category.name%></td>
+                <td><%=link_to "Edit", providers_edit_path(id: provider.id)%> <br/> <%=link_to "Delete", providers_delete_path(id: provider.id)%> </td>
+            </tr>
+            
+            <%end%>
+        </table>
+    <%else%>
+    <h2><center><kbd>You don't have even a single Provider?<br/>Pull up ya socks and start sloggin!</kbd></center> </h2>
+    <%end%>
+</div>

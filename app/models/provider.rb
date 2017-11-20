@@ -1,4 +1,5 @@
 class Provider < ActiveRecord::Base
+    belongs_to :category
     has_many :contacts
     validates :name,
         presence: {message: "Enter a Provider name for name's sake" },
