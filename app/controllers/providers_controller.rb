@@ -12,11 +12,24 @@ class ProvidersController < ApplicationController
   end
 
   def edit
+    @provider = Provider.find(params[:id])
+    render 'edit'
   end
 
   def view
     @provider = Provider.find(params[:id])
-    #@contacts = Contacts.a
+    @contacts = Provider.find(params[:id]).contacts
+  end
+  
+  def patch
+    p = Provider.find params[:id]
+    if p.update_attributes provider_update_attributes
+      flash[:success] = "Updated Provider"
+      redirect_to provider_view_path params[:id]
+    else
+      @provider = p
+      render 'edit'
+    end
   end
   
   def create
@@ -24,6 +37,7 @@ class ProvidersController < ApplicationController
     if p.save
       redirect_to providers_index_path
     else
+      flash.now[:error] = p.errors.messages.each.map { |key,value| value }.join('<br>').html_safe
       @provider = p
       render 'new'
     end
@@ -34,4 +48,7 @@ class ProvidersController < ApplicationController
     params.require(:provider).permit(:name,:address,:city,:zip,:category_id,:charge_code)
   end
   
+  def provider_update_attributes
+     params.require(:provider).permit(:name,:address,:city,:zip,:category_id,:charge_code)
+  end
 end

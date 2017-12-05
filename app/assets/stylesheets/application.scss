@@ -15,3 +15,51 @@
  */
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+
+body{
+    background: #d3ffa7;
+}
+
+input::-webkit-input-placeholder {
+color: #c19227 !important;
+}
+ 
+input:-moz-placeholder { /* Firefox 18- */
+color: #c19227 !important;  
+}
+ 
+input::-moz-placeholder {  /* Firefox 19+ */
+color: #c19227 !important;  
+}
+ 
+.custom-tab { display:inline-block; 
+       margin-left: 40px; } 
+ 
+input:-ms-input-placeholder {  
+color: #c19227 !important;  
+}
+
+textarea::-webkit-input-placeholder {
+color: green !important;
+}
+ 
+textarea:-moz-placeholder { /* Firefox 18- */
+color: green !important;  
+}
+ 
+textarea::-moz-placeholder {  /* Firefox 19+ */
+color: green !important;  
+}
+ 
+textarea:-ms-input-placeholder {  
+color: green !important;  
+}
+
+.footer {
+  position: relative;
+  text-align: center;
+  margin-top: 70px; /* negative value of footer height */
+  height: 70px;
+  clear:both;
+  padding-top:20px;
+} 

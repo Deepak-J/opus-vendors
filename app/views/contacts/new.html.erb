@@ -1,0 +1,40 @@
+<div class="container">
+
+<div class="panel panel-default">
+    <div class="panel-heading"><center>Contacts#New</center></div>
+    <div class="panel-body"><center><h2> Place for new Contact</h2></p></center></div>
+</div>
+
+<%= form_for @contact, url: contacts_create_path do |contact| %>
+
+
+<%=contact.text_field :provider_id, disabled: true, value: @orig_provider_id , class: 'form-control'%>
+<%=contact.hidden_field :provider_id, value: @orig_provider_id %>
+<%=contact.collection_select :title, Salutation.all, :salutation, :salutation, prompt: "     -- Select Title --    "%>
+<%=contact.text_field :first_name, placeholder: 'First Name' , class: 'form-control'%>
+<%=contact.text_field :middle_name, placeholder: 'Middle Name' , class: 'form-control'%>
+<%=contact.text_field :last_name, placeholder: 'Last Name' , class: 'form-control'%>
+<%=contact.number_field :year_of_registration, placeholder: 'Year of Registration' , class: 'form-control'%>
+<%=contact.number_field :years_of_experience, placeholder: 'Years of Experience' , class: 'form-control'%>
+<%=contact.text_field :registration_number, placeholder: 'Registration Number' , class: 'form-control'%>
+<%=contact.text_field :qualification, placeholder: 'Qualification' , class: 'form-control'%>
+<%=contact.text_field :clinic_name, placeholder: 'Clinic Name' , class: 'form-control'%>
+<%=contact.text_field :service_type, placeholder: 'Service Type' , class: 'form-control'%>
+<%=contact.number_field :session_rate, placeholder: 'Session Rate' , class: 'form-control'%>
+<%=contact.text_field :rating, placeholder: 'Rating' , class: 'form-control'%>
+<%=contact.text_area :external_notes, placeholder: 'External Notes' , class: 'form-control'%>
+<%=contact.text_area :address, placeholder: 'Address' , class: 'form-control'%>
+<%=contact.text_field :location, placeholder: 'Location' , class: 'form-control'%>
+<%=contact.text_field :state, placeholder: 'State' , class: 'form-control'%>
+<%=contact.text_field :landmark, placeholder: 'Landmark' , class: 'form-control'%>
+<%=contact.text_field :city, placeholder: 'City' , class: 'form-control'%>
+<%=contact.number_field :zip, placeholder: 'Zip' , class: 'form-control'%>
+<%=contact.email_field :email, placeholder: 'Email' , class: 'form-control'%>
+<%=contact.number_field :contact_number, placeholder: 'Contact Number' , class: 'form-control'%>
+<%=contact.number_field :alternate_number, placeholder: 'Alternate Number' , class: 'form-control'%>
+<%=contact.number_field :mobile, placeholder: 'Mobile NUmber' , class: 'form-control'%>
+<%=contact.submit "Create Contact under this provider", class: "btn btn-primary form-control" %>
+<%end%>
+
+<%= link_to "Return to Provider's Idex", providers_index_path %>
+</div>

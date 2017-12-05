@@ -1,8 +1,9 @@
 <div class="container">
-<div class="jumbotron">
-    <h2>Shows all your Providers here </h2>
-    Provider#index
+<div class="panel panel-default">
+    <div class="panel-heading"><center>Provider#Index</center></div>
+    <div class="panel-body"><h3><center><kbd>Lists all your Providers here </kbd></center></h3></div>
 </div>
+
 <%=link_to "New Provider", providers_new_path, class: "btn btn-primary"%>
     <% if @providers.size > 0 %>
         <!----- Start Of Table Headers -->    
@@ -13,7 +14,8 @@
                     <td>Name</td>
                     <td>City</td>
                     <td>Zip</td>
-                    <td>Category</td>                    
+                    <td>Category</td>
+                    <td> Contacts Count </td>
                 </tr>
             </theader>
             <!----- Start Of Data -->
@@ -24,6 +26,7 @@
                 <td><%=provider.city%></td>
                 <td><%=provider.zip%></td>
                 <td><%=provider.category.name%></td>
+                <td> <%= link_to provider.contacts.count, providers_view_path(id: provider.id), anchor: '#provider-contacts' %></td>
                 <td><%=link_to "Edit", providers_edit_path(id: provider.id)%> <br/> <%=link_to "Delete", providers_delete_path(id: provider.id)%> </td>
             </tr>
             

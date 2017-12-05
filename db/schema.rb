@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171119124400) do
+ActiveRecord::Schema.define(version: 20171125113110) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20171119124400) do
   end
 
   create_table "contacts", force: :cascade do |t|
-    t.integer  "provider_ID"
+    t.integer  "provider_id"
     t.string   "title"
     t.string   "first_name"
     t.string   "middle_name"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20171119124400) do
     t.string   "city"
     t.integer  "zip"
     t.string   "email"
-    t.integer  "contact_number"
+    t.string   "contact_number"
     t.integer  "alternate_number"
     t.integer  "mobile"
     t.datetime "created_at",           null: false
@@ -60,6 +60,12 @@ ActiveRecord::Schema.define(version: 20171119124400) do
     t.string   "city"
     t.string   "zip"
     t.integer  "category_id"
+  end
+
+  create_table "salutations", force: :cascade do |t|
+    t.string   "salutation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
