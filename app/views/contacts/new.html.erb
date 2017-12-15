@@ -4,6 +4,9 @@
     <div class="panel-heading"><center>Contacts#New</center></div>
     <div class="panel-body"><center><h2> Place for new Contact</h2></p></center></div>
 </div>
+<table class="table">
+<td><%= link_to "Cancel", providers_view_path(id: @orig_provider_id) %></td>
+</table>
 
 <%= form_for @contact, url: contacts_create_path do |contact| %>
 
@@ -23,18 +26,22 @@
 <%=contact.number_field :session_rate, placeholder: 'Session Rate' , class: 'form-control'%>
 <%=contact.text_field :rating, placeholder: 'Rating' , class: 'form-control'%>
 <%=contact.text_area :external_notes, placeholder: 'External Notes' , class: 'form-control'%>
-<%=contact.text_area :address, placeholder: 'Address' , class: 'form-control'%>
-<%=contact.text_field :location, placeholder: 'Location' , class: 'form-control'%>
-<%=contact.text_field :state, placeholder: 'State' , class: 'form-control'%>
-<%=contact.text_field :landmark, placeholder: 'Landmark' , class: 'form-control'%>
-<%=contact.text_field :city, placeholder: 'City' , class: 'form-control'%>
-<%=contact.number_field :zip, placeholder: 'Zip' , class: 'form-control'%>
+<%# The below commented fields are because of duplication that happens with Provider's details. As discussed with Varun on 30-Nov-17 %>
+<%#contact.text_area :address, placeholder: 'Address' , class: 'form-control'%>
+<%#contact.text_field :location, placeholder: 'Location' , class: 'form-control'%>
+<%#contact.text_field :state, placeholder: 'State' , class: 'form-control'%>
+<%#contact.text_field :landmark, placeholder: 'Landmark' , class: 'form-control'%>
+<%#contact.text_field :city, placeholder: 'City' , class: 'form-control'%>
+<%#contact.number_field :zip, placeholder: 'Zip' , class: 'form-control'%>
 <%=contact.email_field :email, placeholder: 'Email' , class: 'form-control'%>
-<%=contact.number_field :contact_number, placeholder: 'Contact Number' , class: 'form-control'%>
+<%#contact.number_field :contact_number, placeholder: 'Contact Number' , class: 'form-control'%>
 <%=contact.number_field :alternate_number, placeholder: 'Alternate Number' , class: 'form-control'%>
 <%=contact.number_field :mobile, placeholder: 'Mobile NUmber' , class: 'form-control'%>
 <%=contact.submit "Create Contact under this provider", class: "btn btn-primary form-control" %>
 <%end%>
 
-<%= link_to "Return to Provider's Idex", providers_index_path %>
+<table class="table">
+<td><%= link_to "Cancel", providers_view_path(id: @orig_provider_id) %></td> <td><%= link_to "Return to Provider's Index", providers_index_path %></td>
+</table>
+
 </div>

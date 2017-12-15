@@ -5,6 +5,18 @@ class ContactsController < ApplicationController
   end
 
   def edit
+    @contact = Contact.find(params[:id])
+    
+  end
+  
+  def patch
+    c = Contact.find params[:contact][:id]
+    if c.update_attributes contacts_update_params
+      redirect_to contacts_view_path(id: params[:contact][:id])
+    else
+      flash.now[:error] = c.errors.messages.each.map { |key,value| value }.join('<br>').html_safe
+      render 'edit'
+    end
   end
 
   def index
@@ -21,6 +33,7 @@ class ContactsController < ApplicationController
       #puts @contact
       redirect_to providers_view_path(id: @orig_provider_id)
     else
+      flash.now[:error] = p.errors.messages.each.map { |key,value| value }.join('<br>').html_safe
       @contact = contact
       render 'new'
     end
@@ -36,29 +49,58 @@ class ContactsController < ApplicationController
   private
   def contacts_create_params
     params.require(:contact).permit(:provider_id,
-:title,
-:first_name,
-:middle_name,
-:last_name,
-:year_of_registration,
-:years_of_experience,
-:registration_number,
-:qualification,
-:clinic_name,
-:service_type,
-:session_rate,
-:rating,
-:external_notes,
-:address,
-:location,
-:state,
-:landmark,
-:city,
-:zip,
-:email,
-:contact_number,
-:alternate_number,
-:mobile)
+                                    :title,
+                                    :first_name,
+                                    :middle_name,
+                                    :last_name,
+                                    :year_of_registration,
+                                    :years_of_experience,
+                                    :registration_number,
+                                    :qualification,
+                                    :clinic_name,
+                                    :service_type,
+                                    :session_rate,
+                                    :rating,
+                                    :external_notes,
+                                    #Below fields being commented because of duplication with Provider's fields (As discussed with Varun on 30-Nov-17)
+                                    #:address,
+                                    #:location,
+                                    #:state,
+                                    #:landmark,
+                                    #:city,
+                                    #:zip,
+                                    :email,
+                                    #:contact_number,
+                                    :alternate_number,
+                                    :mobile)
   end
+  
+  def contacts_update_params
+    params.require(:contact).permit(:provider_id,
+                                    :title,
+                                    :first_name,
+                                    :middle_name,
+                                    :last_name,
+                                    :year_of_registration,
+                                    :years_of_experience,
+                                    :registration_number,
+                                    :qualification,
+                                    :clinic_name,
+                                    :service_type,
+                                    :session_rate,
+                                    :rating,
+                                    :external_notes,
+                                    #Below fields being commented because of duplication with Provider's fields (As discussed with Varun on 30-Nov-17)
+                                    #:address,
+                                    #:location,
+                                    #:state,
+                                    #:landmark,
+                                    #:city,
+                                    #:zip,
+                                    :email,
+                                    #:contact_number,
+                                    :alternate_number,
+                                    :mobile)
+  end  
   
 end

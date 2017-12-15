@@ -3,17 +3,12 @@ class ProvidersController < ApplicationController
     @provider = Provider.new
   end
 
-  def view
-    @provider = Provider.find(id: params[:id])
-  end
-
   def index
     @providers = Provider.all
   end
 
   def edit
     @provider = Provider.find(params[:id])
-    render 'edit'
   end
 
   def view
@@ -22,11 +17,12 @@ class ProvidersController < ApplicationController
   end
   
   def patch
-    p = Provider.find params[:id]
+    p = Provider.find params[:provider][:id]
     if p.update_attributes provider_update_attributes
       flash[:success] = "Updated Provider"
-      redirect_to provider_view_path params[:id]
+      redirect_to providers_view_path(id: params[:provider][:id])
     else
+      flash.now[:error] = p.errors.messages.each.map { |key,value| value }.join('<br>').html_safe
       @provider = p
       render 'edit'
     end

@@ -1,5 +1,34 @@
 <div class="container">
-<div class="jumbotron">
-    <h2>Full view for Contact: <kbd><%=@contact.first_name%></kbd></h2>
-    Contact#view
+<div class="panel panel-default">
+    <div class="panel-heading"><center>Contacts#View<center></div>
+    <div class="panel-body"><h3><center><kbd>View page for contact: <span class= 'highlight'><%="#{@contact.first_name} , #{@contact.last_name}"%></span></kbd></center></h3></div>
 </div>
+<table class="table">
+    <td><%=link_to "Back to #{@contact.provider.name}", providers_view_path(id: @contact.provider_id)%></td>
+    <td> <%=link_to "Edit Contact Info", contacts_edit_path(id: @contact.id) %></td>
+</table>
+<table class="table">
+    <!-- Header Data -->
+         <tr><th>ID</th>      <td><%= @contact.id %> </td></tr>
+         <tr><th> Provider tagged to </th> <td><%= link_to @contact.provider.name, providers_view_path(id: @contact.provider_id)%> </td></tr>
+         <tr><th>Title</th>       <td><%= @contact.title %> </td></tr>
+         <tr><th>First name </th>       <td><%= @contact.first_name %> </td></tr>
+         <tr><th>Middle name </th>       <td><%= @contact.middle_name %> </td></tr>
+         <tr><th>Last name </th>       <td><%= @contact.last_name %> </td></tr>
+         <tr><th>Year of registration </th>       <td><%= @contact.year_of_registration %> </td></tr>
+         <tr><th>Years of experience </th>       <td><%= @contact.years_of_experience %> </td></tr>
+         <tr><th>Registration number </th>       <td><%= @contact.registration_number %> </td></tr>
+         <tr><th>Qualification </th>       <td><%= @contact.qualification %> </td></tr>
+         <tr><th>Clinic name </th>       <td><%= @contact.clinic_name %> </td></tr>
+         <tr><th>Tervice type </th>       <td><%= @contact.service_type %> </td></tr>
+         <tr><th>Session rate </th>       <td><%= @contact.session_rate %> </td></tr>
+         <tr><th>Rating</th>       <td><%= @contact.rating %> </td></tr>
+         <tr><th>External notes </th>       <td><%= @contact.external_notes %> </td></tr>
+         <tr><th>email</th>       <td><%= @contact.email %> </td></tr>
+         <tr><th>Alternate number </th>       <td><%= @contact.alternate_number %> </td></tr>
+         <tr><th>Mobile</th>       <td><%= @contact.mobile %> </td></tr>
+</table>
+<table class="table">
+<td><%=link_to "Back to #{@contact.provider.name}", providers_view_path(id: @contact.provider_id)%></td><td> <%=link_to "Edit this contact", contacts_edit_path(id: @contact.id) %></td>
+</table>
+<%#link_to %>

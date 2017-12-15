@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171125113110) do
+ActiveRecord::Schema.define(version: 20171211123352) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -36,14 +36,7 @@ ActiveRecord::Schema.define(version: 20171125113110) do
     t.float    "session_rate"
     t.string   "rating"
     t.text     "external_notes"
-    t.text     "address"
-    t.string   "location"
-    t.string   "state"
-    t.string   "landmark"
-    t.string   "city"
-    t.integer  "zip"
     t.string   "email"
-    t.string   "contact_number"
     t.integer  "alternate_number"
     t.integer  "mobile"
     t.datetime "created_at",           null: false

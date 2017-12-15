@@ -1,2 +1,44 @@
-<h1>Contacts#edit</h1>
-<p>Find me in app/views/contacts/edit.html.erb</p>
+<div class='container'>
+
+<div class="panel panel-default">
+    <div class="panel-heading"><center>Contacts#Edit<center></div>
+    <div class="panel-body"><h3><center><kbd>Edit page for contact: <span class= 'highlight'><%=@contact.first_name.concat ", ".concat @contact.last_name%></span></kbd></center></h3></div>
+</div>
+
+<%= form_for @contact, url: contacts_patch_path  do |contact| %>
+    <%=contact.text_field :provider_id, disabled: true, value: @contact.provider_id, class: 'form-control'%>
+    <%=contact.text_field :id, disabled: true, value: @contact.id , class: 'form-control'%>
+    <%=contact.hidden_field :id, value: @contact.id %>
+    <%=contact.hidden_field :provider_id, value: @contact.provider_id %>
+    <%=contact.collection_select :title, Salutation.all, :salutation, :salutation, prompt: "     -- Select Title --    "%>
+    <%=contact.text_field :first_name, placeholder: 'First Name' , class: 'form-control'%>
+    <%=contact.text_field :middle_name, placeholder: 'Middle Name' , class: 'form-control'%>
+    <%=contact.text_field :last_name, placeholder: 'Last Name' , class: 'form-control'%>
+    <%=contact.number_field :year_of_registration, placeholder: 'Year of Registration' , class: 'form-control'%>
+    <%=contact.number_field :years_of_experience, placeholder: 'Years of Experience' , class: 'form-control'%>
+    <%=contact.text_field :registration_number, placeholder: 'Registration Number' , class: 'form-control'%>
+    <%=contact.text_field :qualification, placeholder: 'Qualification' , class: 'form-control'%>
+    <%=contact.text_field :clinic_name, placeholder: 'Clinic Name' , class: 'form-control'%>
+    <%=contact.text_field :service_type, placeholder: 'Service Type' , class: 'form-control'%>
+    <%=contact.number_field :session_rate, placeholder: 'Session Rate' , class: 'form-control'%>
+    <%=contact.text_field :rating, placeholder: 'Rating' , class: 'form-control'%>
+    <%=contact.text_area :external_notes, placeholder: 'External Notes' , class: 'form-control'%>
+    <%# The below commented fields are because of duplication that happens with Provider's details. As discussed with Varun on 30-Nov-17 %>
+    <%#contact.text_area :address, placeholder: 'Address' , class: 'form-control'%>
+    <%#contact.text_field :location, placeholder: 'Location' , class: 'form-control'%>
+    <%#contact.text_field :state, placeholder: 'State' , class: 'form-control'%>
+    <%#contact.text_field :landmark, placeholder: 'Landmark' , class: 'form-control'%>
+    <%#contact.text_field :city, placeholder: 'City' , class: 'form-control'%>
+    <%#contact.number_field :zip, placeholder: 'Zip' , class: 'form-control'%>
+    <%=contact.email_field :email, placeholder: 'Email' , class: 'form-control'%>
+    <%#contact.number_field :contact_number, placeholder: 'Contact Number' , class: 'form-control'%>
+    <%=contact.number_field :alternate_number, placeholder: 'Alternate Number' , class: 'form-control'%>
+    <%=contact.number_field :mobile, placeholder: 'Mobile NUmber' , class: 'form-control'%>
+    <%=contact.submit "Save this info for this Contact", class: "btn btn-primary form-control" %>
+<%end%>
+
+<table class="table">
+<td><%= link_to "Cancel", contacts_view_path(id: @contact.id) %></td> <td><%= link_to "Return to Provider's Index", providers_view_path(id: @contact.provider_id) %></td>
+</table>
+
+</div>

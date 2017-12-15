@@ -1,24 +1,30 @@
 <div class="container">
 <div class="panel panel-default">
     <div class="panel-heading"><center>Provider#View<center></div>
-    <div class="panel-body"><h3><center>Full view for provider: <kbd><%=@provider.name%></kbd></center></h3></div>
+    <div class="panel-body"><h3><center><kbd>Full view for provider: <span class= 'highlight'><%=@provider.name%></span></kbd></center></h3></div>
 </div>
-<%= link_to "Add Contact", contacts_new_path(id: @provider.id), class: 'custom-tab' %> <vr/> <%=link_to "Back to Index", providers_index_path, class: 'custom-tab'%>
+
+<table class='table'>
+    <td><%=link_to "Add Contact", contacts_new_path(id: @provider.id), class: 'custom-tab' %></td> 
+    <td><%=link_to "Back to Index", providers_index_path, class: 'custom-tab'%></td>
+    <td><%=link_to "Edit", providers_edit_path(id: @provider.id)%></td>
+</table>
+
 <table class="table">
     <tr>
-        <td>ID </td><td><%=@provider.id%></td>
+        <th>ID </th><td><%=@provider.id%></td>
     </tr><tr>
-       <td>Name </td><td><%=@provider.name%></td>
+       <th>Name </th><td><%=@provider.name%></td>
     </tr><tr>
-        <td>Address </td><td><%=@provider.address%></td>
+        <th>Address </th><td><%=@provider.address%></td>
     </tr><tr>
-        <td>Charge Code </td><td><%=@provider.charge_code%></td>
+        <th>Charge Code </th><td><%=@provider.charge_code%></td>
     </tr><tr>
-        <td>City </td><td><%=@provider.city%></td>
+        <th>City </th><td><%=@provider.city%></td>
     </tr><tr>
-         <td>Zip </td><td><%=@provider.zip%></td>
+         <th>Zip </th><td><%=@provider.zip%></td>
     </tr><tr>
-         <td>Category </td><td><%=@provider.category.name%></td>
+         <th>Category </th><td><%=@provider.category.name%></td>
     </tr>
 </table>
 <vr/>
@@ -35,8 +41,8 @@
                 <th>Contact ID</th>
                 <th>Contact Name</th>
                 <th>Service Type</th>
-                <th>Location</th>
-                <th>City</th>
+                <th>Mobile</th>
+                <th>Alternate Numebr</th>
             </tr>
         </theader>
         <% @contacts.each do |contact| %>
@@ -44,8 +50,8 @@
             <td> <%= contact.id %>
             <td> <%= link_to((contact.title.concat(" ").concat contact.first_name.concat(", ").concat contact.last_name), contacts_view_path(id: contact.id)) %></td>
             <td> <%= contact.service_type %> </td>
-            <td> <%= contact.location %> </td>
-            <td> <%= contact.city %></td>
+            <td> <%= contact.mobile %> </td>
+            <td> <%= contact.alternate_number %> </td>
         </tr>
     <%end%>
     <%end%>
