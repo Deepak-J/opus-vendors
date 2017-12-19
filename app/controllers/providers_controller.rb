@@ -28,6 +28,15 @@ class ProvidersController < ApplicationController
     end
   end
   
+  def delete
+    p = Provider.find(params[:id])
+    if p.destroy
+      redirect_to providers_index_path
+    else
+      redirect_to providers_view_path(id: p.id)
+    end
+  end
+  
   def create
     p = Provider.new provider_create_params
     if p.save

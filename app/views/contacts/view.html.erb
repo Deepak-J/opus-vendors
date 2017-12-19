@@ -1,7 +1,8 @@
+<% page_title "Contact View - #{@contact.first_name}" %>
 <div class="container">
 <div class="panel panel-default">
     <div class="panel-heading"><center>Contacts#View<center></div>
-    <div class="panel-body"><h3><center><kbd>View page for contact: <span class= 'highlight'><%="#{@contact.first_name} , #{@contact.last_name}"%></span></kbd></center></h3></div>
+    <div class="panel-body"><h3><center><kbd>View page for contact: <span class= 'highlight'><%="#{@contact.first_name}, #{@contact.last_name}"%></span></kbd></center></h3></div>
 </div>
 <table class="table">
     <td><%=link_to "Back to #{@contact.provider.name}", providers_view_path(id: @contact.provider_id)%></td>

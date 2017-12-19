@@ -5,3 +5,17 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+############# Seeding for Categories ##########################
+Category.create(name: 'Health')
+Category.create(name: 'Finance')
+Category.create(name: 'Concierge')
+Category.create(name: 'Law')
+Category.create(name: 'Misc')
+################################################################
+############# Seeding for Salutations ##########################
+Salutation.create(salutation: 'Mr')
+Salutation.create(salutation: 'Ms')
+Salutation.create(salutation: 'Mrs')
+Salutation.create(salutation: 'Dr')
+################################################################

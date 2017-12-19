@@ -6,7 +6,6 @@ class ContactsController < ApplicationController
 
   def edit
     @contact = Contact.find(params[:id])
-    
   end
   
   def patch
@@ -23,17 +22,22 @@ class ContactsController < ApplicationController
   end
 
   def delete
+    c = Contact.find(params[:id])
+    if c.destroy
+      redirect_to providers_view_path(id: c.provider_id)
+    else
+      redirect_to contacts_view_path(id: c.id)
+    end
   end
 
   def create
     contact = Contact.new contacts_create_params
     if contact.save
-      @orig_provider_id = contact.provider_id
       #@contacts = Contacts.find_by(provider_id: @orig_provider_id)
       #puts @contact
-      redirect_to providers_view_path(id: @orig_provider_id)
+      redirect_to providers_view_path(id: contact.provider_id)
     else
-      flash.now[:error] = p.errors.messages.each.map { |key,value| value }.join('<br>').html_safe
+      flash.now[:error] = contact.errors.messages.each.map { |key,value| value }.join('<br>').html_safe
       @contact = contact
       render 'new'
     end

@@ -1,3 +1,4 @@
+<% page_title "Provider View - #{@provider.name}" %>
 <div class="container">
 <div class="panel panel-default">
     <div class="panel-heading"><center>Provider#View<center></div>
@@ -52,6 +53,7 @@
             <td> <%= contact.service_type %> </td>
             <td> <%= contact.mobile %> </td>
             <td> <%= contact.alternate_number %> </td>
+            <td><%=link_to "Edit", contacts_edit_path(id: contact.id)%><br/><%=link_to "Delete", contacts_delete_path(id: contact.id), method: :delete, data: {confirm: "You better know what you're doin!"}%></td>
         </tr>
     <%end%>
     <%end%>

@@ -6,9 +6,8 @@ Rails.application.routes.draw do
   patch 'contacts/edit/(:params)', to: 'contacts#patch', as: :contacts_patch
   get 'contacts/index', to: 'contacts#index', as: :contacts_index
   get 'contacts/index/(:params)', to: 'contacts#ProviderIndex', as: :contacts_provider_index
-  get 'contacts/delete/(:params)', to: 'contacts#delete', as: :contacts_delete
   post 'contacts/create/(:params)', to: 'contacts#create', as: :contacts_create
-  get 'contacts/destroy/(:params)', to: 'contacts#destroy', as: :contacts_destroy
+  delete 'contacts/delete/(:params)', to: 'contacts#delete', as: :contacts_delete
   get 'contacts/view/(:params)', to: 'contacts#view', as: :contacts_view
   ############################################################
 
@@ -18,7 +17,7 @@ Rails.application.routes.draw do
   post 'providers/create/(:params)', to: 'providers#create', as: :providers_create
   get 'providers/provider/(:params)', to: 'providers#view', as: :providers_view
   get 'providers/edit/(:params)', to: 'providers#edit', as: :providers_edit
-  get 'providers/delete/(:params)', to: 'providers#delete', as: :providers_delete
+  delete 'providers/delete/(:params)', to: 'providers#delete', as: :providers_delete
   patch 'providers/edit/(:params)', to: 'providers#patch', as: :providers_patch
   ############################################################
 

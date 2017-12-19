@@ -1,3 +1,4 @@
+<% page_title "Providers Index" %>
 <div class="container">
 <div class="panel panel-default">
     <div class="panel-heading"><center>Provider#Index</center></div>
@@ -27,7 +28,7 @@
                 <td><%=provider.zip%></td>
                 <td><%=provider.category.name%></td>
                 <td> <%= link_to provider.contacts.count, providers_view_path(id: provider.id), anchor: '#provider-contacts' %></td>
-                <td><%=link_to "Edit", providers_edit_path(id: provider.id)%> <br/> <%=link_to "Delete", providers_delete_path(id: provider.id)%> </td>
+                <td><%=link_to "Edit", providers_edit_path(id: provider.id)%> <br/> <%=link_to "Delete", providers_delete_path(id: provider.id), method: :delete, data: {confirm: "Make sure you know what you're doin!"}%> </td>
             </tr>
             
             <%end%>

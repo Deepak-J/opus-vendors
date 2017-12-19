@@ -11,54 +11,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171211123352) do
+ActiveRecord::Schema.define(version: 20171218125555) do
 
   create_table "categories", force: :cascade do |t|
-    t.string   "name"
-    t.string   "comments"
-    t.string   "prefix"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",       limit: 255
+    t.string   "comments",   limit: 255
+    t.string   "prefix",     limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "contacts", force: :cascade do |t|
-    t.integer  "provider_id"
-    t.string   "title"
-    t.string   "first_name"
-    t.string   "middle_name"
-    t.string   "last_name"
-    t.string   "year_of_registration"
-    t.integer  "years_of_experience"
-    t.string   "registration_number"
-    t.string   "qualification"
-    t.string   "clinic_name"
-    t.string   "service_type"
-    t.float    "session_rate"
-    t.string   "rating"
-    t.text     "external_notes"
-    t.string   "email"
-    t.integer  "alternate_number"
-    t.integer  "mobile"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.integer  "provider_id",          limit: 4
+    t.string   "title",                limit: 255
+    t.string   "first_name",           limit: 255
+    t.string   "middle_name",          limit: 255
+    t.string   "last_name",            limit: 255
+    t.string   "year_of_registration", limit: 255
+    t.integer  "years_of_experience",  limit: 4
+    t.string   "registration_number",  limit: 255
+    t.string   "qualification",        limit: 255
+    t.string   "clinic_name",          limit: 255
+    t.string   "service_type",         limit: 255
+    t.float    "session_rate",         limit: 24
+    t.string   "rating",               limit: 255
+    t.text     "external_notes",       limit: 65535
+    t.string   "email",                limit: 255
+    t.string   "alternate_number",     limit: 255
+    t.string   "mobile",               limit: 255
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
   create_table "providers", force: :cascade do |t|
-    t.integer  "provider_id"
-    t.string   "name"
-    t.text     "address"
-    t.string   "charge_code"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "city"
-    t.string   "zip"
-    t.integer  "category_id"
+    t.integer  "provider_id", limit: 4
+    t.string   "name",        limit: 255
+    t.text     "address",     limit: 65535
+    t.string   "charge_code", limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "city",        limit: 255
+    t.string   "zip",         limit: 255
+    t.integer  "category_id", limit: 4
   end
 
   create_table "salutations", force: :cascade do |t|
-    t.string   "salutation"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "salutation", limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
 end
